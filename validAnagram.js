@@ -4,6 +4,7 @@
 // iceman
 
 
+// this one is O(n)
 const validAnagram = (strOne, strTwo) => {
   if (strOne.length !== strTwo.length) {
     console.log(false)
