@@ -1,4 +1,8 @@
 // time complexity: O(n^2)
+// space complecity: O(1)
+// best over others when
+// we have limited space as we do in-place
+// comparison
 const selectionSort = arr => {
   for (let i = 0; i < arr.length; i++) {
     let minimum = i;
