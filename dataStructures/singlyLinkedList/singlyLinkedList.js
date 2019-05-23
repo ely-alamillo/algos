@@ -57,6 +57,43 @@ class SinglyLinkedList {
 
     return current;
   }
+
+  // remove head
+  shift() {
+    // no head
+    if (!this.head) return null;
+    // set pointers
+    const head = this.head;
+    const next = this.head.next;
+    // cut head off
+    this.head = next;
+    this.length--;
+    // reset tail if no head
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    return head;
+  }
+
+  // insert at front
+  unshift(val) {
+    const node = new Node(val);
+    // no head set tail and head
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      // new node
+      // move head forward
+      // replace with new head
+      node.next = this.head;
+      this.head = node;
+    }
+    this.length++;
+
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -66,3 +103,8 @@ console.log(list); // hello => ely => null
 console.log(list.pop()); // {value: "ely", next: null}
 console.log(list.pop()); // {value: "Hello", next: null}
 console.log(list); // {head: null, tail: null, length: 0}
+list.push('one');
+list.push('two');
+console.log(list.shift());
+console.log(list); // {head: { value: "two", next: null}, tail: { value: "two", next: null}, length: 1}
+console.log(list.unshift('new head')); // {head: { value: "new head", next: ...rest}, tail: { value: "two", next: null}, length: 2}
